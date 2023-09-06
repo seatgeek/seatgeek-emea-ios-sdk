@@ -28,4 +28,13 @@ In order to fetch the SDK, you must have SeatGeek authorisation credentials. Ple
 7) After adding the package, you can start using its modules in your code. Import the module using `import SeatGeekEMEASDK`.
 
 ## Usage
-TBD
+```
+    SeatGeekSDK.instance.configure(clientID: "client_id", clientSecret: "client_secret")
+    Task {
+        do {
+            try await SeatGeekSDK.instance.authenticate(user: "", password: "")
+        } catch {
+            print("[Error]: \(error.localizedDescription)")
+        }
+    }
+```
