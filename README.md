@@ -18,6 +18,15 @@ SeatGeek EMEA SDK allows client integrators to bring ticketing experience into t
 ### Credentials
 In order to fetch the SDK, you must have SeatGeek authorisation credentials. Please reach out to your SeatGeek EMEA client services representative to acquire it.
 
+### Add SeatGeek Artifactory credentials
+You need to configue your .netrc file.
+Paste the following text and replace your login and password with the proper values that were provided to you.
+```
+machine seatgeek.jfrog.io
+login your_login_here
+password your_password_here
+```
+
 ### Steps:
 1) Launch Xcode and open your existing Swift application project or create a new one.
 2) Go to the "File" menu at the top-left corner of the Xcode window. Select "Add Packages..."
