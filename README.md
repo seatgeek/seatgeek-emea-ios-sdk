@@ -38,12 +38,16 @@ password your_password_here
 
 ## Usage
 ```
-    SeatGeekSDK.instance.configure(clientID: "client_id", clientSecret: "client_secret")
+    let sdk = SeatGeekSDK.instance
+    let esroURL = URL(string: "https://esro_environment_url")!
+    sdk.configure(clientID: "cliend_id", clientSecret: "client_secret", esroURL: esroURL)
     Task {
         do {
-            try await SeatGeekSDK.instance.authenticate(user: "", password: "")
+            try await sdk.authenticate(ssoToken: "sso_token")
         } catch {
-            print("[Error]: \(error.localizedDescription)")
+            await MainActor.run {
+                print("🚨 [Error]: \(error.localizedDescription)")
+            }
         }
     }
 ```
