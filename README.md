@@ -7,7 +7,7 @@ SeatGeek EMEA SDK allows client integrators to bring ticketing experience into t
 ## Contents
 - [Requirements](https://github.com/seatgeek/seatgeek-emea-ios-sdk#requirements)
 - [Installation](https://github.com/seatgeek/seatgeek-emea-ios-sdk#installation)
-- [Getting Started](https://github.com/seatgeek/seatgeek-emea-ios-sdk#gettingstarted)
+- [Getting Started](https://github.com/seatgeek/seatgeek-emea-ios-sdk#getting-started)
 
 ## Requirements
 - iOS 15.0+
@@ -75,7 +75,7 @@ Both `SeatGeekView` and `SeatGeekViewController` come with their own navigation 
 
 4) Using SeatGeekViewController with UIKit
 
-To use SwiftViewController, either from a storyboard or programmatically, you don't need to wrap it in a UINavigationController. It comes with its own navigation stack:
+To use SeatGeekViewController, either from a storyboard or programmatically, you don't need to wrap it in a UINavigationController. It comes with its own navigation stack.
 
 ### From a Storyboard
 
