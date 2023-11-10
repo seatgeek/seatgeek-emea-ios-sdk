@@ -42,13 +42,13 @@ password your_password_here
 ```
 import SeatGeekEMEASDK
 ```
-2) Configure the SDK with your credentials, eSRO URL and API URL (optional) by calling the `SeatGeekSDK.instance.configure` function.
+2) Configure the SDK with your credentials, eSRO URL and API URL (optional) by calling the `SeatGeekSDK.instance.configure` function with a `SeatGeekSDKConfiguration` parameter.
 You must do this before using any of the SDK's features:
 ```
-    let sdk = SeatGeekSDK.instance
     let esroURL = URL(string: "https://esro_environment_url")!
-    let apiURL = URL(string: "https://api_url")! // optional
-    sdk.configure(clientID: "cliend_id", clientSecret: "client_secret", esroURL: esroURL, apiURL: apiURL)
+    let config = SeatGeekSDKConfiguration(clientID: "cliend_id", clientSecret: "client_secret", esroURL: esroURL)
+    SeatGeekSDK.instance.configure(with: config)
+
     Task {
         do {
             try await sdk.authenticate(ssoToken: "sso_token")
@@ -71,6 +71,17 @@ struct ExampleView: View {
     }
 }
 ```
+Optionally, you can add `backButtonAction` parameter to `SeatGeekView` initializer. This will display the "Back" button and clicking the button will execute the closure passed as an argument.
+Usage examples:
+```
+1.  SeatGeekViewController(backButtonAction: { print("Back button click!") })
+
+2.  let viewController = SeatGeekViewController()
+    viewController.backButtonAction =  { print("Back button click!") }
+
+3.  SeatGeekView(backButtonAction: { print("Back button clicked!") })
+```
+
 Both `SeatGeekView` and `SeatGeekViewController` come with their own navigation stacks, so you don't need to wrap them in a `NavigationView` or `UINavigationController`.
 
 4) Using SeatGeekViewController with UIKit
