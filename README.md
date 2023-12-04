@@ -71,15 +71,16 @@ struct ExampleView: View {
     }
 }
 ```
-Optionally, you can add `backButtonAction` parameter to `SeatGeekView` initializer. This will display the "Back" button and clicking the button will execute the closure passed as an argument.
+Optionally, you can add the `backButton` parameter to `SeatGeekView` or `SeatGeekViewController` initializer. It is a structure of a `SeatGeekBackButton` type that gives you the ability to display the "Back" button in the navigation bar. `title` is optional, if it is not set, it will fall back to a default "Back" value. `action` is a closure that will be executed on the button click.
+
 Usage examples:
 ```
-1.  SeatGeekViewController(backButtonAction: { print("Back button click!") })
+1.  SeatGeekView(backButton: SeatGeekBackButton() { print("Back button click!") })
 
-2.  let viewController = SeatGeekViewController()
-    viewController.backButtonAction =  { print("Back button click!") }
+2.  let rootViewController = SeatGeekViewController()
+    rootViewController.backButton = SeatGeekBackButton(title: "", action: { print("Back button clicked!") }) // This will show Back button without title
 
-3.  SeatGeekView(backButtonAction: { print("Back button clicked!") })
+
 ```
 
 Both `SeatGeekView` and `SeatGeekViewController` come with their own navigation stacks, so you don't need to wrap them in a `NavigationView` or `UINavigationController`.
