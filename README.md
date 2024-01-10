@@ -43,15 +43,29 @@ password your_password_here
 import SeatGeekEMEASDK
 ```
 2) Configure the SDK with your credentials, eSRO URL and API URL (optional) by calling the `SeatGeekSDK.instance.configure` function with a `SeatGeekSDKConfiguration` parameter.
+
+Optionally, you can add `loggingEnabled: true` parameter to collect application logs to a file for debugging purposes.
+By default this flag is set to `false` and if you do not provide it - logging feature will not be enabled.
+*! Be careful, make sure that you set it to `true` only for non-production builds.*
+
+When this flag is set to `true`, you will be able to share the SDK logs document by clicking "document with arrow" icon on the right side of the navigation bar on the `SeatGeekView` screen.
+
 You must do this before using any of the SDK's features:
 ```
     let esroURL = URL(string: "https://esro_environment_url")!
-    let config = SeatGeekSDKConfiguration(clientID: "cliend_id", clientSecret: "client_secret", esroURL: esroURL)
+    let config = SeatGeekSDKConfiguration(clientID: "cliend_id", clientSecret: "client_secret", esroURL: esroURL, loggingEnabled: true)
     SeatGeekSDK.instance.configure(with: config)
 
     Task {
         do {
             try await sdk.authenticate(ssoToken: "sso_token")
+        } catch SeatGeekError.requestFailed(let httpStatusCode, let data) {
+            var errorMessage = "Status code: \(httpStatusCode)."
+            if let data,
+            let message = String(data: data, encoding: .utf8) {
+                errorMessage += "Message: \(message)."
+            }
+            print("🚨 [Error] Network Request Failed. \(errorMessage)")
         } catch {
             await MainActor.run {
                 print("🚨 [Error]: \(error.localizedDescription)")
