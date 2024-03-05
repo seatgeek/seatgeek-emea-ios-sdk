@@ -51,7 +51,7 @@ By default this flag is set to `false` and if you do not provide it - logging fe
 When this flag is set to `true`, you will be able to share the SDK logs document by clicking "document with arrow" icon on the right side of the navigation bar on the `SeatGeekView` screen.
 
 You must do this before using any of the SDK's features:
-```
+```swift
     let esroURL = URL(string: "https://esro_environment_url")!
     let config = SeatGeekSDKConfiguration(clientID: "cliend_id", clientSecret: "client_secret", esroURL: esroURL, loggingEnabled: true)
     SeatGeekSDK.instance.configure(with: config)
@@ -78,7 +78,7 @@ This configuration step is necessary for the SDK to communicate with backend ser
 3) Using SeatGeekView with SwiftUI
 
 The Swift SDK provides a public SwiftUI View called SeatGeekView that you can use in your application. To use it, simply add it to your SwiftUI views:
-```
+```swift
 struct ExampleView: View {
     var body: some View {
         SeatGeekView()
@@ -88,7 +88,7 @@ struct ExampleView: View {
 Optionally, you can add the `backButton` parameter to `SeatGeekView` or `SeatGeekViewController` initializer. It is a structure of a `SeatGeekBackButton` type that gives you the ability to display the "Back" button in the navigation bar. `title` is optional, if it is not set, it will fall back to a default "Back" value. `action` is a closure that will be executed on the button click.
 
 Usage examples:
-```
+```swift
 1.  SeatGeekView(backButton: SeatGeekBackButton() { print("Back button click!") })
 
 2.  let rootViewController = SeatGeekViewController()
@@ -111,6 +111,6 @@ To use SeatGeekViewController, either from a storyboard or programmatically, you
 
 ### Programmatically
 
-```
+```swift
 let seatGeekViewController = SeatGeekViewController()
 ```
