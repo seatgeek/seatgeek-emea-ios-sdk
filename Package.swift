@@ -13,7 +13,7 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(name: "SeatGeekEMEASDK",
-                      url: "https://seatgeek.jfrog.io/artifactory/emea-sdk-ios/v1.3.0/SeatGeekEMEASDK.xcframework.zip",
-                      checksum: "026f0b1688c43d9928298d422c3187f58c6221f5c48b7955fd735693d1f3821d"),
+                      url: "https://seatgeek.jfrog.io/artifactory/emea-sdk-ios/v1.3.1/SeatGeekEMEASDK.xcframework.zip",
+                      checksum: "e22cce8e4db2619102e43166e97309a20e47b8a4a8ef2ad59c38ac009459824c"),
     ]
 )
